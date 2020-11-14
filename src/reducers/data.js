@@ -1,0 +1,42 @@
+export const data = [
+  {
+    id: "1",
+    name: "Item 01",
+    desc: "ps4",
+    price: "9.99",
+    inStock: 20,
+    quantity: 0,
+  },
+  {
+    id: "1",
+    name: "Item 01",
+    desc: "ps4",
+    price: "9.99",
+    inStock: 20,
+    quantity: 0,
+  },
+  {
+    id: "1",
+    name: "Item 01",
+    desc: "ps4",
+    price: "9.99",
+    inStock: 20,
+    quantity: 0,
+  },
+  {
+    id: "1",
+    name: "Item 01",
+    desc: "ps4",
+    price: "9.99",
+    inStock: 20,
+    quantity: 0,
+  },
+  {
+    id: "1",
+    name: "Item 01",
+    desc: "ps4",
+    price: "9.99",
+    inStock: 20,
+    quantity: 0,
+  },
+];
