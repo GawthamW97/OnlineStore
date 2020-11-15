@@ -3,26 +3,28 @@ import React, { useState, useEffect } from "react";
 import SingleProduct from "./SingleProduct";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 function ProductsPage(props) {
-  const { products, counts } = props;
+  const { products, listOfItems } = props;
   const itemSet = new Set();
   const [items, setItems] = useState(itemSet);
   useEffect(() => {});
-  console.log(counts);
   return (
     <div>
       <Grid container>
         <Grid item xs={12}>
           <div style={{ display: "inline-block", width: "100%" }}>
             <Typography variant="h4">My Online Store</Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              style={{ float: "right" }}
-            >
-              Cart ({counts})
-            </Button>
+            <Link to="/cart">
+              <Button
+                variant="contained"
+                color="primary"
+                style={{ float: "right" }}
+              >
+                Cart ({listOfItems.length})
+              </Button>
+            </Link>
           </div>
         </Grid>
         {products &&
@@ -44,10 +46,11 @@ function ProductsPage(props) {
 
 ProductsPage.prototype = {
   products: PropTypes.number.isRequired,
+  listOfItems: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   products: state.product.products,
-  counts: state.product.count,
+  listOfItems: state.cart.items,
 });
 export default connect(mapStateToProps)(ProductsPage);
