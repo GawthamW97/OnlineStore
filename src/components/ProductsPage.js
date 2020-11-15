@@ -10,6 +10,7 @@ function ProductsPage(props) {
   const itemSet = new Set();
   const [items, setItems] = useState(itemSet);
   useEffect(() => {});
+  console.log(listOfItems);
   return (
     <div>
       <Grid container>

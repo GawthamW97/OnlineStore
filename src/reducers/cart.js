@@ -8,7 +8,11 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case ADD_TO_CART:
-      return { ...state, items: [...state.items, payload] };
+      if (state.items.includes(payload)) {
+        return state;
+      } else {
+        return { ...state, items: [...state.items, payload] };
+      }
     case INCREASE:
       return { ...state, payload };
     case DECREASE:

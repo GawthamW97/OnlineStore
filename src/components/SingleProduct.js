@@ -1,16 +1,20 @@
 import { Button, Card, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { setCartItems } from "../actions/product";
 import { addItemToCart } from "../actions/cart";
 import PropTypes from "prop-types";
 
-function SingleProduct({ product, addItemToCart, setItems, items }) {
-  const [disable, setDisable] = useState(product.status);
-
+function SingleProduct({
+  product,
+  setCartItems,
+  addItemToCart,
+  setItems,
+  items,
+}) {
   const addItem = (obj) => {
-    obj.status = true;
+    setCartItems(items.add(obj.id));
     addItemToCart(obj);
-    setDisable(true);
   };
   return (
     <div>
@@ -25,7 +29,6 @@ function SingleProduct({ product, addItemToCart, setItems, items }) {
             variant="contained"
             color="primary"
             onClick={(e) => addItem(product)}
-            disabled={disable}
           >
             Add to Card
           </Button>
@@ -35,6 +38,7 @@ function SingleProduct({ product, addItemToCart, setItems, items }) {
   );
 }
 SingleProduct.prototype = {
+  setCartItems: PropTypes.func.isRequired,
   addItemToCart: PropTypes.func.isRequired,
 };
-export default connect(null, { addItemToCart })(SingleProduct);
+export default connect(null, { setCartItems, addItemToCart })(SingleProduct);
