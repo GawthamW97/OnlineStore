@@ -14,9 +14,21 @@ export default function (state = initialState, action) {
         return { ...state, items: [...state.items, payload] };
       }
     case INCREASE:
-      return { ...state, payload };
     case DECREASE:
-      return { ...state, payload };
+      state.items.find(function (post, index) {
+        if (post.id === payload.id) {
+          return {
+            ...state,
+            items: [
+              ...state.items.slice(0, index),
+              { payload },
+              ...state.items.slice(index + 1),
+            ],
+          };
+        } else {
+          return state;
+        }
+      });
     case REMOVE_ITEM:
       return { ...state, payload };
     default:

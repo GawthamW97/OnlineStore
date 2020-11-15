@@ -14,7 +14,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Container>
+        <Container maxWidth="md">
           <Route exact path="/" component={ProductsPage} />
           <section>
             <Switch>

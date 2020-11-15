@@ -1,4 +1,4 @@
-import { Button, Card, Typography } from "@material-ui/core";
+import { Button, Card, Typography, CardMedia } from "@material-ui/core";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { setCartItems } from "../actions/product";
@@ -19,7 +19,11 @@ function SingleProduct({
   return (
     <div>
       <Card>
-        <div style={{ width: "200px", height: "200px" }}></div>
+        <div style={{ width: "200px", height: "200px" }}>
+          <CardMedia>
+            <img src={product.image} alt="product" width="100%" height="100%" />
+          </CardMedia>
+        </div>
         <div style={{ padding: "10px" }}>
           <Typography variant="body1">{product.name}</Typography>
           <Typography variant="subtitle2">{product.price}</Typography>

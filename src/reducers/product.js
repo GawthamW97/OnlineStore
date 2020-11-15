@@ -11,6 +11,8 @@ const initialState = {
       inStock: 20,
       quantity: 1,
       status: false,
+      image:
+        "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
     },
     {
       id: "2",
@@ -20,6 +22,8 @@ const initialState = {
       inStock: 23,
       quantity: 1,
       status: false,
+      image:
+        "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
     },
     {
       id: "3",
@@ -29,6 +33,8 @@ const initialState = {
       inStock: 30,
       quantity: 1,
       status: false,
+      image:
+        "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
     },
     {
       id: "4",
@@ -38,6 +44,8 @@ const initialState = {
       inStock: 10,
       quantity: 1,
       status: false,
+      image:
+        "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
     },
     {
       id: "5",
@@ -47,6 +55,8 @@ const initialState = {
       inStock: 40,
       quantity: 1,
       status: false,
+      image:
+        "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
     },
   ],
   count: 0,

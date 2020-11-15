@@ -7,19 +7,17 @@ export const addItemToCart = (obj) => (dispatch) => {
   });
 };
 
-export const increaseQuantity = (value) => (dispatch) => {
-  console.log(value);
+export const increaseQuantity = (obj) => (dispatch) => {
   dispatch({
     type: INCREASE,
-    payload: value,
+    payload: obj,
   });
 };
 
-export const decreaseQuantity = (value) => (dispatch) => {
-  console.log(value);
+export const decreaseQuantity = (obj) => (dispatch) => {
   dispatch({
     type: DECREASE,
-    payload: value,
+    payload: obj,
   });
 };
 
