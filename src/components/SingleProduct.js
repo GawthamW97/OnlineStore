@@ -1,20 +1,14 @@
 import { Button, Card, Typography, CardMedia } from "@material-ui/core";
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { setCartItems } from "../actions/product";
 import { addItemToCart } from "../actions/cart";
 import PropTypes from "prop-types";
 
-function SingleProduct({
-  product,
-  setCartItems,
-  addItemToCart,
-  setItems,
-  items,
-}) {
+function SingleProduct({ product, addItemToCart, count, setCount }) {
   const addItem = (obj) => {
-    setCartItems(items.add(obj.id));
+    obj.quantity = obj.quantity + 1;
     addItemToCart(obj);
+    setCount(count + 1);
   };
   return (
     <div>
@@ -42,7 +36,6 @@ function SingleProduct({
   );
 }
 SingleProduct.prototype = {
-  setCartItems: PropTypes.func.isRequired,
   addItemToCart: PropTypes.func.isRequired,
 };
-export default connect(null, { setCartItems, addItemToCart })(SingleProduct);
+export default connect(null, { addItemToCart })(SingleProduct);

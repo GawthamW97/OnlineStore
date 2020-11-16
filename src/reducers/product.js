@@ -9,7 +9,7 @@ const initialState = {
       desc: "ps4",
       price: "9.99",
       inStock: 20,
-      quantity: 1,
+      quantity: 0,
       status: false,
       image:
         "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
@@ -20,7 +20,7 @@ const initialState = {
       desc: "ps4",
       price: "19.99",
       inStock: 23,
-      quantity: 1,
+      quantity: 0,
       status: false,
       image:
         "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
@@ -31,7 +31,7 @@ const initialState = {
       desc: "ps4",
       price: "59.99",
       inStock: 30,
-      quantity: 1,
+      quantity: 0,
       status: false,
       image:
         "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
@@ -42,7 +42,7 @@ const initialState = {
       desc: "ps4",
       price: "39.99",
       inStock: 10,
-      quantity: 1,
+      quantity: 0,
       status: false,
       image:
         "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
@@ -53,7 +53,7 @@ const initialState = {
       desc: "ps4",
       price: "19.99",
       inStock: 40,
-      quantity: 1,
+      quantity: 0,
       status: false,
       image:
         "https://images-na.ssl-images-amazon.com/images/I/71PGvPXpk5L._SX466_.jpg",
@@ -66,8 +66,6 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case ADD_ITEM:
-      return { ...state, count: payload.size };
     default:
       return state;
   }

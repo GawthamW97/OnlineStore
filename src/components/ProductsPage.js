@@ -7,8 +7,17 @@ import { Link } from "react-router-dom";
 
 function ProductsPage(props) {
   const { products, listOfItems } = props;
-  const itemSet = new Set();
-  const [items, setItems] = useState(itemSet);
+
+  const getCount = (items) => {
+    let value = 0;
+    items.map((item) => {
+      value = value + item.quantity;
+    });
+    return value;
+  };
+
+  const [count, setCount] = useState(getCount(listOfItems));
+
   return (
     <div>
       <Grid container>
@@ -21,7 +30,7 @@ function ProductsPage(props) {
                 color="primary"
                 style={{ float: "right" }}
               >
-                Cart ({listOfItems.length})
+                Cart ({count === 0 ? getCount(listOfItems) : count})
               </Button>
             </Link>
           </div>
@@ -32,8 +41,8 @@ function ProductsPage(props) {
               <Grid item xs={3} key={product.id} style={{ padding: "5px" }}>
                 <SingleProduct
                   product={product}
-                  setItems={setItems}
-                  items={items}
+                  count={count}
+                  setCount={setCount}
                 />
               </Grid>
             );

@@ -36,6 +36,7 @@ function ShoppingCart(props) {
   const initialState = {
     item: {
       id: items.id,
+      order: items.order,
       name: items.name,
       desc: items.desc,
       price: items.price,
@@ -63,6 +64,10 @@ function ShoppingCart(props) {
   };
   console.log(items);
 
+  const setOrderValues = (items) => {
+    items.map(function (row, index) {});
+  };
+
   return (
     <div>
       <Grid container>
@@ -89,76 +94,82 @@ function ShoppingCart(props) {
               </TableHead>
               <TableBody>
                 {items &&
-                  items.map((row) => (
-                    <TableRow key={row.id}>
-                      <TableCell component="th" scope="row">
-                        <div style={{ display: "inline-block" }}>
-                          <div
-                            style={{
-                              width: "150px",
-                              height: "100px",
-                              display: "inline-block",
-                            }}
-                          >
-                            <img
-                              src={row.image}
-                              alt="product"
-                              width="100%"
-                              height="100%"
-                            />
-                          </div>
+                  items.map(function (row, index) {
+                    return (
+                      <TableRow key={index}>
+                        <TableCell component="th" scope="row">
                           <div style={{ display: "inline-block" }}>
-                            <ul
+                            <div
                               style={{
-                                listStyle: "none",
-                                padding: "5px",
+                                width: "150px",
+                                height: "100px",
+                                display: "inline-block",
                               }}
                             >
-                              <li style={{ padding: "4px" }}>
-                                <Typography variant="h6">{row.name}</Typography>
-                              </li>
-                              <li style={{ padding: "4px", color: "red" }}>
-                                {row.desc}
-                              </li>
-                              <li style={{ padding: "4px", color: "gray" }}>
-                                <Typography variant="body2">Remove</Typography>
-                              </li>
-                            </ul>
+                              <img
+                                src={row.image}
+                                alt="product"
+                                width="100%"
+                                height="100%"
+                              />
+                            </div>
+                            <div style={{ display: "inline-block" }}>
+                              <ul
+                                style={{
+                                  listStyle: "none",
+                                  padding: "5px",
+                                }}
+                              >
+                                <li style={{ padding: "4px" }}>
+                                  <Typography variant="h6">
+                                    {row.name}
+                                  </Typography>
+                                </li>
+                                <li style={{ padding: "4px", color: "red" }}>
+                                  {row.desc}
+                                </li>
+                                <li style={{ padding: "4px", color: "gray" }}>
+                                  <Typography variant="body2">
+                                    Remove
+                                  </Typography>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                        </div>
-                      </TableCell>
-                      <TableCell align="center">
-                        <ButtonGroup>
-                          <Button
-                            color="primary"
-                            size="small"
-                            onClick={() => increase(row)}
-                          >
-                            <AddIcon />
-                          </Button>
-                          <Button>
-                            <TextField
-                              value={row.quantity}
-                              variant="standard"
+                        </TableCell>
+                        <TableCell align="center">
+                          <ButtonGroup>
+                            <Button
+                              color="primary"
                               size="small"
-                              style={{ width: "10px" }}
-                            />
-                          </Button>
-                          <Button
-                            color="primary"
-                            size="small"
-                            onClick={() => decrease(row)}
-                          >
-                            <RemoveIcon />
-                          </Button>
-                        </ButtonGroup>
-                      </TableCell>
-                      <TableCell align="center">{row.price}</TableCell>
-                      <TableCell align="center">
-                        {row.quantity * row.price}
-                      </TableCell>
-                    </TableRow>
-                  ))}
+                              onClick={() => increase(row)}
+                            >
+                              <AddIcon />
+                            </Button>
+                            <Button>
+                              <TextField
+                                value={row.quantity}
+                                variant="standard"
+                                size="small"
+                                style={{ width: "20px" }}
+                              />
+                            </Button>
+                            <Button
+                              color="primary"
+                              size="small"
+                              onClick={() => decrease(row)}
+                            >
+                              <RemoveIcon />
+                            </Button>
+                          </ButtonGroup>
+                        </TableCell>
+                        <TableCell align="center">{row.price}</TableCell>
+                        <TableCell align="center">
+                          {row.quantity * row.price}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
               </TableBody>
             </Table>
           </TableContainer>
