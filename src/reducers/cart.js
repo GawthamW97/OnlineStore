@@ -30,7 +30,10 @@ export default function (state = initialState, action) {
         }
       });
     case REMOVE_ITEM:
-      return { ...state, payload };
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== payload),
+      };
     default:
       return state;
   }
